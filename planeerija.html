@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="et">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#ffffff" />
+  <meta name="description" content="Planeeri oma leibkonna kriisivarud ja vaata, millised asjad on veel puudu." />
+  <title>Kriisiplaan – Planeerija</title>
+  <link rel="icon" href="assets/logo.svg" type="image/svg+xml" />
+  <link rel="stylesheet" href="style.css" />
+  <script src="script.js" defer></script>
+</head>
+<body data-page="planner">
+  <header class="site-header">
+    <a class="brand" href="index.html" aria-label="Kriisiplaan – esilehele">
+      <img src="assets/logo.svg" alt="Kriisiplaani logo" width="64" height="62" />
+      <span>KRIISIPLAAN</span>
+    </a>
+    <nav class="main-nav" aria-label="Peamenüü">
+      <a class="nav-button" href="planeerija.html" aria-current="page" data-i18n="planner">Planeerija</a>
+      <a class="nav-button" href="https://www.olevalmis.ee/" target="_blank" rel="noopener noreferrer" data-i18n="info">Lisainfo</a>
+    </nav>
+    <div class="language-switch" aria-label="Keelevalik">
+      <button class="lang-button active" type="button" data-lang="et" aria-pressed="true">EST</button>
+      <span aria-hidden="true" class="language-divider"></span>
+      <button class="lang-button" type="button" data-lang="en" aria-pressed="false">EN</button>
+    </div>
+  </header>
+
+  <main class="planner-main">
+    <div class="wave-background" aria-hidden="true"></div>
+    <section class="hero-card planner-card" aria-labelledby="planner-heading">
+      <h1 id="planner-heading" data-i18n="plannerHeading">PLANEERIJA</h1>
+      <form class="planner-form" id="planner-form" autocomplete="off">
+        <div class="form-field">
+          <label for="household" data-i18n="household">Leibkond</label>
+          <div class="select-wrap">
+            <select id="household" name="household" required aria-label="Leibkonna suurus">
+              <option value="" selected></option>
+              <option value="1">1</option><option value="2">2</option><option value="3">3</option>
+              <option value="4">4</option><option value="5">5</option><option value="6">6</option>
+              <option value="7">7</option><option value="8">8</option><option value="9">9</option>
+              <option value="10">10+</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-field">
+          <label for="crisis" data-i18n="crises">Kriisid</label>
+          <div class="select-wrap">
+            <select id="crisis" name="crisis" required aria-label="Kriisi tüüp">
+              <option value="" selected></option>
+              <option value="power" data-i18n="power">Elektrikatkestus</option>
+              <option value="water" data-i18n="waterOutage">Veevarustuse katkestus</option>
+              <option value="storm" data-i18n="storm">Torm</option>
+              <option value="evacuation" data-i18n="evacuation">Evakuatsioon</option>
+              <option value="general" data-i18n="general">Üldine kriis</option>
+            </select>
+          </div>
+        </div>
+      </form>
+
+      <section class="results" id="results" hidden aria-live="polite">
+        <div class="results-topline">
+          <h2 data-i18n="yourPlan">Sinu varude plaan</h2>
+          <label class="days-field" for="days"><span data-i18n="days">Päevi</span>
+            <input type="number" name="days" id="days" min="1" max="30" value="7" inputmode="numeric" />
+          </label>
+        </div>
+        <p class="water-note" id="water-summary"></p>
+        <p class="results-hint" data-i18n="resultsHint">Märgi ära varud, mis sul juba olemas on.</p>
+        <div class="checklist" id="checklist" aria-label="Varude kontrollnimekiri"></div>
+        <div class="progress-line" id="progress-line"></div>
+        <div class="results-actions">
+          <button class="action-button action-primary" id="download-plan" type="button" data-i18n="download">Salvesta nimekiri</button>
+          <button class="action-button action-secondary" id="reset-plan" type="button" data-i18n="reset">Alusta uuesti</button>
+        </div>
+        <p class="safety-note" data-i18n="safetyNote">See on näidisnimekiri. Kohanda varusid oma vajadustele. Kütust kasutavaid seadmeid ei tohi kasutada siseruumides.</p>
+      </section>
+      <noscript><p class="noscript-warning">Kontrollnimekirja kasutamiseks peab brauseris olema JavaScript lubatud.</p></noscript>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-columns">
+      <p><span data-i18n="stateInfo">Riigiinfo telefon</span>: <a href="tel:1246">1246</a><br /><a href="tel:+3726001247">+372 600 1247</a></p>
+      <p class="footer-center"><span data-i18n="emergency">Hädaabi</span> <a href="tel:112">112</a></p>
+      <p><span data-i18n="poison">Mürgistusteabekeskus</span>:<br /><a href="tel:16662">16662</a><br /><a href="tel:+3727943794">+372 794 3794</a></p>
+    </div>
+  </footer>
+</body>
+</html>

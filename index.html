@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="et">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#ffffff" />
+  <meta name="description" content="Kriisiplaan aitab valmistuda ootamatuteks olukordadeks ja planeerida koduseid varusid." />
+  <title>Kriisiplaan – Esileht</title>
+  <link rel="icon" href="assets/logo.svg" type="image/svg+xml" />
+  <link rel="stylesheet" href="style.css" />
+  <script src="script.js" defer></script>
+</head>
+<body data-page="home">
+  <header class="site-header">
+    <a class="brand" href="index.html" aria-label="Kriisiplaan – esilehele">
+      <img src="assets/logo.svg" alt="Kriisiplaani logo" width="64" height="62" />
+      <span>KRIISIPLAAN</span>
+    </a>
+    <nav class="main-nav" aria-label="Peamenüü">
+      <a class="nav-button" href="planeerija.html" data-i18n="planner">Planeerija</a>
+      <a class="nav-button" href="https://www.olevalmis.ee/" target="_blank" rel="noopener noreferrer" data-i18n="info">Lisainfo</a>
+    </nav>
+    <div class="language-switch" aria-label="Keelevalik">
+      <button class="lang-button active" type="button" data-lang="et" aria-pressed="true">EST</button>
+      <span aria-hidden="true" class="language-divider"></span>
+      <button class="lang-button" type="button" data-lang="en" aria-pressed="false">EN</button>
+    </div>
+  </header>
+
+  <main class="home-main">
+    <div class="wave-background" aria-hidden="true"></div>
+    <section class="hero-card home-card" aria-labelledby="main-title">
+      <h1 id="main-title" data-i18n="heroTitle">ABI IGAS RASKES HETKES</h1>
+      <p data-i18n="heroText">Kriisiks saab igaüks iseseisvalt valmistuda. Selleks juhuks tegime selle lehe, et saaksid vajadusel varusid täiendada.</p>
+      <a class="cta-link" href="planeerija.html" data-i18n="goPlanner">Planeerijasse →</a>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-columns">
+      <p><span data-i18n="stateInfo">Riigiinfo telefon</span>: <a href="tel:1246">1246</a><br /><a href="tel:+3726001247">+372 600 1247</a></p>
+      <p class="footer-center"><span data-i18n="emergency">Hädaabi</span> <a href="tel:112">112</a></p>
+      <p><span data-i18n="poison">Mürgistusteabekeskus</span>:<br /><a href="tel:16662">16662</a><br /><a href="tel:+3727943794">+372 794 3794</a></p>
+    </div>
+  </footer>
+</body>
+</html>

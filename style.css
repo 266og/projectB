@@ -1,0 +1,179 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap');
+
+:root {
+  --text: #080808;
+  --accent: #f00;
+  --paper: #fff;
+  --edge: #0c0a0a;
+  --ui: 'Inter', Arial, sans-serif;
+  --display: 'Space Grotesk', Arial, sans-serif;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { margin: 0; min-width: 320px; color: var(--text); background: var(--paper); font-family: var(--ui); }
+a { color: inherit; }
+button, input, select { font: inherit; }
+button, a, select, input { -webkit-tap-highlight-color: transparent; }
+:focus-visible { outline: 3px solid #e62635; outline-offset: 4px; }
+
+/* Shared navigation from the Figma design */
+.site-header {
+  position: relative; z-index: 10;
+  display: flex; align-items: center; justify-content: space-between;
+  width: 100%; min-height: 73px; padding: 3px 15px;
+  background: #fff; box-shadow: 0 4px 2px rgb(0 0 0 / 25%);
+}
+.brand {
+  display: inline-flex; align-items: center; gap: 10px;
+  text-decoration: none; white-space: nowrap;
+  font-size: 22px; font-weight: 700;
+  text-shadow: 0 4px 4px rgb(0 0 0 / 25%);
+}
+.brand img { width: 64px; height: 62px; object-fit: contain; flex: none; }
+.main-nav {
+  display: flex; align-items: center; justify-content: space-between;
+  width: min(442px, 40vw); margin-left: auto; margin-right: 148px;
+}
+.nav-button {
+  display: inline-block; min-width: 147px; padding: 5px 10px;
+  border: 1px solid var(--edge); border-radius: 15px;
+  background: #fff; box-shadow: 0 4px 4px rgb(0 0 0 / 25%);
+  font-size: 22px; font-weight: 700; letter-spacing: 2.2px;
+  line-height: 26px; text-align: center; text-decoration: none;
+  transition: transform .18s ease, box-shadow .18s ease;
+}
+.nav-button:hover { transform: translateY(-2px); box-shadow: 0 6px 7px rgb(0 0 0 / 24%); }
+.language-switch { flex: none; display: flex; gap: 4px; align-items: center; }
+.lang-button {
+  position: relative; border: 0; background: none; padding: 6px 0 7px;
+  font-size: 20px; font-weight: 700; cursor: pointer;
+}
+.lang-button.active::after {
+  content: ''; position: absolute; bottom: 3px; left: 0; width: 100%; height: 2px;
+  background: var(--accent); box-shadow: 0 4px 4px rgb(255 0 0 / 25%);
+}
+.language-divider { display: block; height: 35px; width: 4px; background: #000; }
+
+/* The red flowing-line illustration is kept separate from all content. */
+.home-main, .planner-main { position: relative; isolation: isolate; display: flex; flex-direction: column; align-items: center; padding: 309px 20px 0; }
+.home-main { min-height: 974px; }
+.planner-main { min-height: 1567px; }
+.wave-background {
+  position: absolute; z-index: -1; top: 58px; left: 0; right: 0; height: 754px;
+  background-image: url('assets/taust.svg'); background-size: 100% 100%; background-repeat: no-repeat;
+  pointer-events: none;
+}
+.hero-card { width: min(825px, 100%); border-radius: 20px; background: rgb(255 255 255 / 97%); text-align: center; }
+.home-card {
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  height: 409px; padding: 30px 25px;
+  border: 1px solid rgb(255 255 255 / 32%);
+  box-shadow: 0 4px 24px #000;
+  font-family: var(--display); font-weight: 700;
+}
+.home-card h1 { margin: 0 0 10px; font-size: clamp(28px, 3.9vw, 56px); line-height: 1.22; letter-spacing: -.04em; white-space: nowrap; }
+.home-card p { max-width: 658px; margin: 0; font-size: 20px; line-height: 1.3; }
+.cta-link { margin-top: 14px; color: var(--accent); font-size: 20px; font-weight: 700; text-decoration: none; text-shadow: 0 4px 3px rgb(0 0 0 / 10%); }
+.cta-link:hover { text-decoration: underline; }
+
+/* The planner card is intentionally as tall as the one in Figma. */
+.planner-card {
+  min-height: 1150px; padding: 66px 35px 55px;
+  border: 1px solid rgb(255 255 255 / 32%);
+  background: #fff; box-shadow: 0 4px 12px #000;
+}
+.planner-card h1 { font-family: var(--display); font-weight: 700; font-size: 56px; letter-spacing: -.035em; margin: 0 0 18px; line-height: 1.45; }
+.planner-form { text-align: left; }
+.form-field { display: flex; flex-direction: column; align-items: flex-start; margin: 0 0 20px; }
+.form-field label { font-size: 40px; line-height: 1.8; font-weight: 400; }
+.select-wrap { position: relative; width: min(345px, 100%); }
+.select-wrap::after {
+  position: absolute; right: 21px; top: 16px; content: '';
+  width: 16px; height: 16px;
+  border-right: 4px solid #000; border-bottom: 4px solid #000;
+  transform: rotate(45deg); pointer-events: none;
+}
+.select-wrap select {
+  width: 100%; height: 59px; padding: 0 60px 0 18px;
+  appearance: none; -webkit-appearance: none; background: #fff;
+  border: 0; border-radius: 0; box-shadow: 0 4px 15px rgb(0 0 0 / 37%);
+  font-size: 19px; color: #111; cursor: pointer;
+}
+
+/* The extra functionality only appears after both Figma dropdowns are selected. */
+.results { text-align: left; margin-top: 27px; padding: 20px 14px 0; border-top: 1px solid #ececec; }
+.results[hidden] { display: none !important; }
+.results-topline { display: flex; align-items: center; justify-content: space-between; gap: 18px; }
+.results h2 { font-family: var(--display); font-size: 25px; line-height: 1.2; margin: 0; }
+.days-field { display: flex; flex-direction: column; align-items: center; gap: 4px; font-size: 13px; font-weight: 600; }
+.days-field input { width: 72px; height: 38px; padding: 4px 8px; border: 1px solid #bbb; border-radius: 7px; font-size: 18px; text-align: center; }
+.water-note { font-size: 16px; font-weight: 600; margin: 14px 0 7px; }
+.results-hint { font-size: 14px; color: #606060; margin: 0 0 15px; }
+.checklist { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
+.check-item {
+  display: flex; align-items: center; gap: 11px; padding: 12px 11px;
+  border: 1px solid #ededed; border-radius: 9px;
+  background: #fff; box-shadow: 0 2px 8px rgb(0 0 0 / 10%);
+  font-size: 15px; line-height: 1.3; cursor: pointer;
+}
+.check-item input { appearance: none; flex: none; width: 22px; height: 22px; border: 2px solid #b7b7b7; border-radius: 50%; background: #fff; cursor: pointer; }
+.check-item input:checked { border-color: #c61928; background: #c61928; box-shadow: inset 0 0 0 4px #fff; }
+.check-item:has(input:checked) { background: #fff6f7; }
+.progress-line { margin-top: 16px; font-size: 15px; font-weight: 600; }
+.results-actions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 16px; }
+.action-button { border-radius: 9px; border: 1px solid #c61928; padding: 10px 15px; cursor: pointer; font-size: 14px; font-weight: 700; }
+.action-primary { background: #c61928; color: #fff; }
+.action-secondary { background: #fff; color: #a10e20; }
+.action-button:hover { filter: brightness(.96); }
+.safety-note { max-width: 600px; font-size: 12px; line-height: 1.5; color: #666; margin: 17px 0 0; }
+.noscript-warning { margin-top: 30px; color: #a10e20; }
+
+/* Footer / emergency contacts */
+.site-footer { position: relative; z-index: 1; min-height: 272px; padding: 61px 54px 55px; background: #fff; box-shadow: inset 0 4px 4px rgb(0 0 0 / 25%); }
+.footer-columns { width: 100%; display: grid; grid-template-columns: 1.05fr .9fr 1.05fr; gap: 26px; }
+.footer-columns p { margin: 0; font-size: clamp(20px, 2.22vw, 32px); line-height: 1.17; font-weight: 400; }
+.footer-columns a { text-decoration: none; }
+.footer-columns a:hover { text-decoration: underline; }
+.footer-center { text-align: center; }
+
+@media (max-width: 1100px) {
+  .main-nav { margin-right: 35px; width: min(400px, 42vw); }
+  .nav-button { font-size: 18px; letter-spacing: 1px; min-width: 125px; }
+  .brand { font-size: 19px; }
+  .wave-background { background-size: auto 100%; background-position: center; }
+}
+@media (max-width: 720px) {
+  .site-header { flex-wrap: wrap; padding: 7px 16px 13px; gap: 9px; }
+  .brand { width: calc(100% - 100px); font-size: 18px; }
+  .brand img { width: 46px; height: 45px; }
+  .language-switch { margin-left: auto; order: 0; }
+  .lang-button { font-size: 15px; }
+  .language-divider { height: 26px; width: 2px; }
+  .main-nav { order: 2; width: 100%; justify-content: center; gap: 20px; margin: 2px 0 0; }
+  .nav-button { font-size: 16px; min-width: 120px; padding: 5px 8px; border-radius: 12px; }
+  .home-main { min-height: 700px; padding: 155px 17px 50px; }
+  .planner-main { min-height: 1100px; padding: 120px 16px 90px; }
+  .wave-background { top: 45px; height: 540px; background-size: auto 100%; }
+  .home-card { width: 100%; height: auto; min-height: 315px; padding: 40px 22px; }
+  .home-card h1 { white-space: normal; font-size: clamp(27px, 6.8vw, 42px); letter-spacing: -.02em; }
+  .home-card p { font-size: 17px; }
+  .cta-link { font-size: 18px; }
+  .planner-card { min-height: 950px; padding: 35px 23px 50px; }
+  .planner-card h1 { font-size: 38px; margin-bottom: 22px; }
+  .form-field { margin-bottom: 20px; }
+  .form-field label { font-size: 27px; line-height: 1.7; }
+  .select-wrap { width: 100%; }
+  .checklist { grid-template-columns: 1fr; }
+  .results { padding: 17px 0 0; }
+  .results h2 { font-size: 22px; }
+  .site-footer { min-height: 0; padding: 35px 25px; }
+  .footer-columns { grid-template-columns: 1fr; gap: 26px; }
+  .footer-columns p { font-size: 19px; }
+  .footer-center { text-align: left; }
+}
+@media print {
+  .site-header, .wave-background, .site-footer, .results-actions { display: none !important; }
+  .planner-main { padding: 0; min-height: auto; }
+  .planner-card { width: 100%; min-height: 0; padding: 20px; box-shadow: none; }
+  .results[hidden] { display: none; }
+}
